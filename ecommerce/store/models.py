@@ -4,7 +4,7 @@ import os
 
 def get_file_path(request, filename):
     original_filename = filename
-    nowTime = datetime.datetime.now().strtime('%Y%m%d%H:%M:%S')
+    nowTime = datetime.datetime.now().strftime('%Y%m%d%H:%M:%S')
     filename ="%s%s" % (nowTime, original_filename)
     return os.path.join('upload/', filename)
 
@@ -32,7 +32,7 @@ class Product(models.Model):
     name = models.CharField(max_length=150, name=False, blank=False)
     prduct_image = models.ImageField(upload_to =get_file_path, null=True, blank=True)
     small_desciption = models.CharField(max_length=250, null=False, blank=False) 
-    quantity = models.ImageField(null=False, blank=False)
+    quantity = models.IntegerField(null=False, blank=False)
     desciption = models.TextField(max_length=500, null=False, blank=False)
     original_price = models.FloatField(null=False,blank=False)
     selling_price = models.FloatField(null=False,blank=False)

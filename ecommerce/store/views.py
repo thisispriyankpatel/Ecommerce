@@ -1,10 +1,12 @@
-from django.shortcuts import render
+
 from django.contrib import messages
-from . models import *
+from django.shortcuts import render, redirect
+from . models import Category, Product
 
 
 def home(request):
     return render(request, "store/index.html")
+    
 
 
 def collections(request):

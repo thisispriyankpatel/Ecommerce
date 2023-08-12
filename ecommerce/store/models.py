@@ -55,7 +55,7 @@ class Cart(models.Model):
     product_qty = models.IntegerField(null=False, blank=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
-<<<<<<< HEAD
+
 class Wishlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
@@ -101,6 +101,4 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return '{} {}'.format(self.order.id, self.order.tracking_no)
-    
-=======
->>>>>>> fd114003eeaabb9755207492f08a3ce5aacd36a3
+

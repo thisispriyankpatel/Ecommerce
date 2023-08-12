@@ -1,10 +1,10 @@
 from django.urls import path
 from . import views
-<<<<<<< HEAD
+
 from store.controller import authview, cart, Wishlist,checkout, order
-=======
+
 from store.controller import authview, cart
->>>>>>> fd114003eeaabb9755207492f08a3ce5aacd36a3
+
 
 urlpatterns = [
     path('', views.home, name="home"),
@@ -16,8 +16,7 @@ urlpatterns = [
     path('login/', authview.loginpage, name="loginpage" ),
     path('logout/', authview.logoutpage, name="logout" ),
 
-          
-<<<<<<< HEAD
+
     path('add-to-cart', cart.addtocart, name="addtocart"),
     path('cart',cart.viewcart, name="cart"),
     path('update-cart', cart.updatecart, name="updatecart"),
@@ -34,8 +33,7 @@ urlpatterns = [
     path('view-order/<str:t_no>', order.vieworder, name="orderView")
                    
 
-=======
     path('cart-to-cart', cart.addtocart, name="addtocart"),
     path('cart',cart.viewcart, name="cart")
->>>>>>> fd114003eeaabb9755207492f08a3ce5aacd36a3
+
 ]

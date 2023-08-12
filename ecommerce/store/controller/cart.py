@@ -3,10 +3,9 @@ from django.http.response import JsonResponse
 from django.contrib import messages
 from django.contrib.auth import authenticate, login,logout
 from store.models import Product,Cart
-<<<<<<< HEAD
+
 from django.contrib.auth.decorators import login_required 
-=======
->>>>>>> fd114003eeaabb9755207492f08a3ce5aacd36a3
+
 
 
 def addtocart(request):
@@ -21,24 +20,16 @@ def addtocart(request):
                     prod_qty = int(request.POST.get('product_qty'))
 
                     if product_check.quantity >=prod_qty:
-<<<<<<< HEAD
+
                         Cart.objects.create(user=request.user, product_id=prod_id, product_qty=prod_qty)
-=======
+
                         Cart.objects.create(user=request.user, prod_id=prod_id, prod_qty=prod_qty)
->>>>>>> fd114003eeaabb9755207492f08a3ce5aacd36a3
+
                         return JsonResponse({'status':"Product Added Successfully"})
                     else:
                         return JsonResponse({'status':"Only"+ str(product_check.quantity)+ "Quantity availble"})
             
-<<<<<<< HEAD
-                                               
-=======
-                 
-                
-                
 
-
->>>>>>> fd114003eeaabb9755207492f08a3ce5aacd36a3
             else:
                 return JsonResponse({'status':"No such product found"})
 
@@ -48,15 +39,11 @@ def addtocart(request):
 
     return redirect('/')
 
-<<<<<<< HEAD
 @login_required(login_url= 'loginpage')
-=======
->>>>>>> fd114003eeaabb9755207492f08a3ce5aacd36a3
 
 def viewcart(request):
     cart = Cart.objects.filter(user=request.user)
     context = {'cart':cart}
-<<<<<<< HEAD
     return render(request,"store/cart.html", context)
 
 
@@ -80,6 +67,5 @@ def deletecartitem(request):
             return JsonResponse({'status': "Deleted Successully"})
         return redirect('/')
 
-=======
     return render(request,"store/cart.html", context)
->>>>>>> fd114003eeaabb9755207492f08a3ce5aacd36a3
+
